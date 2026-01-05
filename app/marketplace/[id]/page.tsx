@@ -107,7 +107,7 @@ export default function ProviderProfilePage() {
         // Load additional images from service_images table
         const { data: additionalImages } = await supabase
             .from('service_images')
-            .select('image_url')
+            .select('id, image_url')
             .in('service_id', (servicesData || []).map((s: Service) => s.id));
 
         (additionalImages || []).forEach((img: ServiceImage) => {
